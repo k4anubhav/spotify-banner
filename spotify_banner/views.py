@@ -63,7 +63,7 @@ class CurrentTrackBannerView(SpotifyClientMixin, GenericAPIView):
 
 
 class CurrentTrackRedirectView(SpotifyClientMixin, GenericAPIView):
-    def get(self, request):
+    def get(self, request, **kwargs):
         current_track = self.client.current_user_playing_track()
         if current_track:
             return redirect(current_track.external_urls['spotify'])
