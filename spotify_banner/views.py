@@ -63,5 +63,5 @@ class CurrentTrackRedirectView(SpotifyClientMixin, GenericAPIView):
     def get(self, request):
         current_track = self.client.current_user_playing_track()
         if current_track:
-            return redirect(current_track.external_urls['spotify'])
+            return redirect(current_track['item']['external_urls']['spotify'])
         return Response(status=status.HTTP_204_NO_CONTENT)
