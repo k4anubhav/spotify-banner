@@ -2,8 +2,8 @@ from typing import Optional
 
 from django.http import Http404
 
-from spotify.client import SpotifyClient
-from spotify.models import SpotifyToken
+from spotify_banner.client import SpotifyClient
+from spotify_banner.models import SpotifyToken
 
 
 class SpotifyClientMixin:

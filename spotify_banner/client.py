@@ -3,7 +3,7 @@ from typing import Optional
 
 from spotipy import SpotifyOAuth, Spotify, CacheHandler
 
-from spotify.models import SpotifyToken
+from spotify_banner.models import SpotifyToken
 
 logger = logging.getLogger(__name__)
 
