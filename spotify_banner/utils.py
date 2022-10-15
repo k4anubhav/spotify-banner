@@ -1,7 +1,10 @@
+from pathlib import Path
 from typing import Dict
 
 import requests
 from PIL import Image, ImageDraw, ImageFont
+
+ASSETS_DIR = Path(__file__).parent / 'assets'
 
 
 def truncate(s: str, limit: int) -> str:
@@ -32,8 +35,8 @@ class SpotifyBanner:
 
         track = self._playing_track['item']
         image = Image.new("RGB", (1000, 300), color=self.background_color)
-        font_heading = ImageFont.truetype(r'doc/spotify/GILLSANS.ttf', 30)
-        font_subheading = ImageFont.truetype(r'doc/spotify/GILLSANS-ITALIC.ttf', 20)
+        font_heading = ImageFont.truetype(rf'{ASSETS_DIR}/GILLSANS.ttf', 30)
+        font_subheading = ImageFont.truetype(rf'{ASSETS_DIR}/GILLSANS-ITALIC.ttf', 20)
 
         draw = ImageDraw.Draw(image)
 
@@ -49,9 +52,9 @@ class SpotifyBanner:
         draw.text((312, 40), subheading, fill=self.subheading_color, font=font_subheading)
 
         if self._playing_track['is_playing']:
-            play_pause = Image.open(r'doc/spotify/play.png')
+            play_pause = Image.open(rf'{ASSETS_DIR}/play.png')
         else:
-            play_pause = Image.open(r'doc/spotify/pause.png')
+            play_pause = Image.open(rf'{ASSETS_DIR}/pause.png')
         image.paste(play_pause.resize((20, 20)), (310, 270))
 
         progress = self._playing_track['progress_ms'] / self._playing_track['item']['duration_ms']

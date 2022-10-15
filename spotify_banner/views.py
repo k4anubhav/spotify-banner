@@ -11,7 +11,7 @@ from .exceptions import NoTrackPlaying
 from .mixins import SpotifyClientMixin
 from .models import SpotifyToken
 from .serializers import CurrentTrackSerializer
-from .utils import SpotifyBanner
+from .utils import SpotifyBanner, ASSETS_DIR
 
 
 class SpotifyRegisterView(GenericAPIView):
@@ -51,7 +51,7 @@ class CurrentTrackBannerView(SpotifyClientMixin, GenericAPIView):
         if track:
             banner = SpotifyBanner(track).banner
         else:
-            banner = Image.open('doc/spotify/NotListening.png')
+            banner = Image.open(fr'{ASSETS_DIR}/NotListening.png')
 
         response = HttpResponse(content_type='image/png')
         # noinspection PyTypeChecker
