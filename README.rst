@@ -15,10 +15,10 @@ Quick start
         'spotify_banner',
     ]
 
-2. Include the polls URLconf in your project urls.py like this::
+2. Include the spotify_banner URLconf in your project urls.py like this::
 
     path('spotify/', include('spotify_banner.urls')),
 
-3. Run ``python manage.py migrate`` to create the polls models.
+3. Run ``python manage.py migrate``.
 
-5. Visit http://127.0.0.1:8000/spotify/register to participate in the poll.
+5. Visit http://127.0.0.1:8000/spotify/register to get banner url.
