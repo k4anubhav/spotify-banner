@@ -54,14 +54,17 @@ class CurrentTrackBannerView(SpotifyClientMixin, GenericAPIView):
             banner = Image.open(fr'{ASSETS_DIR}/NotListening.png')
 
         response = HttpResponse(content_type='image/png')
+        response['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+        response['Pragma'] = 'no-cache'
+        response['Expires'] = '0'
         # noinspection PyTypeChecker
         banner.save(response, 'PNG')
         return response
 
 
 class CurrentTrackRedirectView(SpotifyClientMixin, GenericAPIView):
-    def get(self, request, **kwargs):
+    def get(self, request):
         current_track = self.client.current_user_playing_track()
         if current_track:
-            return redirect(current_track['item']['external_urls']['spotify'])
+            return redirect(current_track.external_urls['spotify'])
         return Response(status=status.HTTP_204_NO_CONTENT)
