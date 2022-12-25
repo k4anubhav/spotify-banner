@@ -41,7 +41,7 @@ class SpotifyBanner:
         draw = ImageDraw.Draw(image)
 
         track_image = Image.open(requests.get(track['album']['images'][0]['url'], stream=True).raw).resize(
-            (300, 300), Image.ANTIALIAS
+            (300, 300)
         )
 
         image.paste(track_image, (0, 0))
