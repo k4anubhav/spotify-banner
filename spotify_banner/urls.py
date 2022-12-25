@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import SpotifyRegisterView, SpotifyCallbackView, CurrentTrackBannerView, CurrentTrackRedirectView
+from .views import *
 
 urlpatterns = [
     path("register/", SpotifyRegisterView.as_view(), name="register"),
