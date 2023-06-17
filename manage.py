@@ -9,7 +9,7 @@ from boot_django import boot_django
 def main():
     """Run administrative tasks."""
     # boot_django.boot_django()
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "project.settings")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "project.project.settings")
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
@@ -22,5 +22,5 @@ def main():
 
 
 if __name__ == "__main__":
-    boot_django()
+    # boot_django()
     main()

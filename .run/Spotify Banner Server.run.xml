@@ -8,6 +8,7 @@
       <env name="DJANGO_SETTINGS_MODULE" value="project.project.settings" />
     </envs>
     <option name="SDK_HOME" value="D:\python_projects\django-spotify-banner\venv\Scripts\python.exe" />
+    <option name="SDK_NAME" value="Python 3.9 (django-spotify-banner)" />
     <option name="WORKING_DIRECTORY" value="" />
     <option name="IS_MODULE_SDK" value="false" />
     <option name="ADD_CONTENT_ROOTS" value="true" />
