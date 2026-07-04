@@ -38,8 +38,8 @@ class SpotifyCallbackView(GenericAPIView):
         client.auth_manager.get_access_token(code)
         token: SpotifyToken = client.get_spotify_token()
         # if request allows html content-type, redirect to banner
-        http_accept = request.META.get('HTTP_ACCEPT', '')
-        if http_accept.contains('text/html') or http_accept.contains('*'):
+        http_accept: str = request.META.get('HTTP_ACCEPT', '')
+        if 'text/html' in http_accept or '*' in http_accept:
             return redirect(resolve_url('current-track-banner', auth_id=token.id))
 
         return redirect(resolve_url('current-track-banner', auth_id=token.id))
